@@ -14,6 +14,7 @@ This [`chatnhook.sh` script](https://raw.githubusercontent.com/chatnhook/zabbix-
 
 If you do change `AlertScriptsPath` (or any other values) within `zabbix_server.conf`, a restart of the Zabbix server software is required.
 
+if you have an error that the script cannot be used by zabbix, you can fix this by use the following command `sudo chmod +x chatnhook.sh` to fix the issue.
 
 Configuration
 -------------
@@ -33,4 +34,22 @@ However, on Zabbix 3.x and greater, media types are configured slightly differen
 
 * `{ALERT.SUBJECT}`
 * `{ALERT.MESSAGE}`
+
+## Add script to user
+
+When logged in to the Zabbix servers web interface with super-administrator privileges, navigate to the "Administration" tab, access the "Users" sub-tab, and make sure under "your user" sub-tab Media click on the "Add" button.
+
+* **Type**: Chat 'n' Hook
+* **Send to**: blank
+* **when Active**: 1-7,00:00-24:00 (or what you preffer)
+* **Use if severity**: your choice
+* **Enable**: set enable
+
+## Action
+
+When logged in to the Zabbix servers web interface with super-administrator privileges, navigate to the "Configuration" tab, access the "Actions" sub-tab, and make sure to click on create action right upper corner.
+
+Please configure this to your normal actions, select an action and under suv-tab "operations" click in the "Operations" section on "new" and make sure there is an action filled with send only to "all" or "ChatnHook".
+
+
 
