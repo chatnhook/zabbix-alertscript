@@ -1,0 +1,21 @@
+#!/usr/bin/env python2
+import sys
+import requests
+import json
+url = "https://webhook.example.com/example-project/zabbix"
+
+
+subject = sys.argv[1]
+message = sys.argv[2]
+
+
+payload = {
+    'payload': subject + ': ' + message
+}
+headers = {
+    'Content-Type': 'application/json',
+    'User-Agent': 'zabbix-chatnhook-alertscript / https://github.com/chatnhook/zabbix-alertscript',
+}
+
+response = requests.request("POST", url, data=json.dumps(payload), headers=headers)
+print(response.text)
